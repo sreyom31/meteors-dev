@@ -28,6 +28,7 @@ export type Event = {
   tracks: string[];
   isActive: boolean;
   maxCount: number;
+  availableCount: number;
 };
 
 export type EventUpdate = {
@@ -44,6 +45,7 @@ export type EventUpdate = {
   tracks?: string[];
   isActive?: boolean;
   maxCount?: number;
+  availableCount?: number;
 };
 
 export type Registration = {

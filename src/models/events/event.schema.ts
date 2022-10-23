@@ -65,6 +65,10 @@ const EventSchema = new Schema({
     type: Number,
     required: [true, 'Max count is required'],
   },
+  availableCount: {
+    type: Number,
+    required: [true, 'Available count is required'],
+  },
   dateOfEntry: {
     type: Date,
     default: new Date(),

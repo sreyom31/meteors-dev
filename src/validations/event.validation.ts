@@ -17,6 +17,7 @@ const createEvent = z.object({
       tracks: z.array(z.string().trim()),
       isActive: z.boolean(),
       maxCount: z.number(),
+      availableCount: z.number(),
     })
     .partial(),
 });
@@ -74,6 +75,7 @@ const updateEvent = z.object({
       tracks: z.array(z.string().trim()),
       isActive: z.boolean(),
       maxCount: z.number(),
+      availableCount: z.number(),
     })
     .partial()
     .refine((event) => Object.keys(event).length, {
