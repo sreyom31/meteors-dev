@@ -2,21 +2,23 @@ import z from 'zod';
 import { Types } from 'mongoose';
 
 const createEvent = z.object({
-  body: z.object({
-    slug: z.string().trim(),
-    desc: z.string().trim(),
-    imageCover: z.string().trim(),
-    hostingClub: z.string(),
-    prizes: z.array(z.string().trim()),
-    registrationFee: z.number(),
-    speakers: z.array(z.string().trim()),
-    venue: z.string().trim(),
-    forTeacher: z.boolean(),
-    forStudent: z.boolean(),
-    tracks: z.array(z.string().trim()),
-    isActive: z.boolean(),
-    maxCount: z.number(),
-  }),
+  body: z
+    .object({
+      slug: z.string().trim(),
+      desc: z.string().trim(),
+      imageCover: z.string().trim(),
+      hostingClub: z.string(),
+      prizes: z.array(z.string().trim()),
+      registrationFee: z.number(),
+      speakers: z.array(z.string().trim()),
+      venue: z.string().trim(),
+      forTeacher: z.boolean(),
+      forStudent: z.boolean(),
+      tracks: z.array(z.string().trim()),
+      isActive: z.boolean(),
+      maxCount: z.number(),
+    })
+    .partial(),
 });
 
 const getEvents = z.object({

@@ -44,3 +44,21 @@ export type EventUpdate = {
   isActive?: boolean;
   maxCount?: number;
 };
+
+export type Registration = {
+  user: string;
+  event: string;
+  isPresent?: boolean;
+  isRefreshment?: boolean;
+  isActive?: boolean;
+  certificate?: string;
+};
+
+export type RegistrationUpdate = {
+  user?: string;
+  event?: string;
+  isPresent?: boolean;
+  isRefreshment?: boolean;
+  isActive?: boolean;
+  certificate?: string;
+};

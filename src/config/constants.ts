@@ -6,10 +6,24 @@ export enum tokenTypes {
 }
 
 export const userDesignations = {
-  admin: ['getUsers', 'manageUsers', 'getEvents', 'manageEvents'],
-  student: ['getUsers', 'manageUsers', 'getEvents'],
-  faculty: ['getUsers', 'manageUsers', 'getEvents'],
-  club: ['getUsers', 'manageUsers', 'getEvents', 'manageEvents'],
+  admin: [
+    'getUsers',
+    'manageUsers',
+    'getEvents',
+    'manageEvents',
+    'getRegistrations',
+    'manageRegistrations',
+  ],
+  student: ['getUsers', 'manageUsers', 'getEvents', 'getRegistrations'],
+  faculty: ['getUsers', 'manageUsers', 'getEvents', 'getRegistrations'],
+  club: [
+    'getUsers',
+    'manageUsers',
+    'getEvents',
+    'manageEvents',
+    'getRegistrations',
+    'manageRegistrations',
+  ],
 };
 
 export enum role {
