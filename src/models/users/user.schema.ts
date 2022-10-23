@@ -33,6 +33,16 @@ const UserSchema = new Schema({
     },
     private: true,
   },
+  dept: {
+    type: String,
+    required: [true, 'Department is required'],
+    trim: true,
+  },
+  role: {
+    type: String,
+    required: [true, 'Role is required'],
+    trim: true,
+  },
   dateOfEntry: {
     type: Date,
     default: new Date(),
