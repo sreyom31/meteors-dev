@@ -1,7 +1,7 @@
 {
-  "name": "node-typescript-boilerplate",
+  "name": "meteors-dev",
   "version": "1.0.0",
-  "description": "A boilerplate for building production-ready RESTful APIs using Node.js, Express written in TypeScript",
+  "description": "An event management platform built using Node.js, Express written in TypeScript",
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
@@ -9,7 +9,7 @@
     "test": "yarn build && yarn start",
     "del": "rimraf dist"
   },
-  "repository": "https://github.com/sreyom31/node-typescript-boilerplate",
+  "repository": "https://github.com/sreyom31/meteors-dev",
   "keywords": [
     "nodejs",
     "express",
@@ -17,9 +17,9 @@
     "typescript"
   ],
   "bugs": {
-    "url": "https://github.com/sreyom31/node-typescript-boilerplate/issues"
+    "url": "https://github.com/sreyom31/meteors-dev/issues"
   },
-  "homepage": "https://github.com/sreyom31/node-typescript-boilerplate#readme",
+  "homepage": "https://github.com/sreyom31/meteors-dev#readme",
   "author": "sreyom31 <sreyom31@gmail.com>",
   "license": "MIT",
   "private": false,
