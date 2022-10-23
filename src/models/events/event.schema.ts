@@ -1,3 +1,4 @@
+import { NextFunction } from 'express';
 import { Schema } from 'mongoose';
 import validator from 'validator';
 import { paginate, toJSON } from '../plugins';
@@ -23,7 +24,7 @@ const EventSchema = new Schema({
   },
   hostingClub: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'user',
     required: [true, 'Hosting club is required'],
   },
   prizes: [
@@ -83,5 +84,16 @@ EventSchema.plugin(toJSON);
 EventSchema.plugin(paginate);
 EventSchema.methods.setLastUpdated = setLastUpdated;
 EventSchema.statics.isSlugTaken = isSlugTaken;
+EventSchema.pre('save', async function (next: NextFunction) {
+  this.populate('hostingClub');
+  next();
+});
+EventSchema.pre(/^find/, function (next: NextFunction) {
+  this.populate({
+    path: 'hostingClub',
+    select: 'name',
+  });
+  next();
+});
 
 export default EventSchema;

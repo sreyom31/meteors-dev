@@ -9,7 +9,7 @@ const router = Router();
 router
   .route('/')
   .post(
-    auth('getRegistrations'),
+    auth('postRegistrations'),
     validate(registrationValidation.createRegistration),
     registrationController.createRegistration
   )
@@ -22,7 +22,7 @@ router
 router
   .route('/:registrationId')
   .get(
-    auth('getRegistrations'),
+    auth('manageRegistrations'),
     validate(registrationValidation.getRegistration),
     registrationController.getRegistration
   )

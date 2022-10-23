@@ -18,6 +18,17 @@ const queryEvents = async (filter: any, options: any) => {
   return events;
 };
 
+const changeCount = async (eventId: string, operation: string) => {
+  const event = await getEventById(eventId);
+  if (operation === 'subtract') {
+    event.availableCount -= 1;
+  }
+  if (operation === 'add') {
+    event.availableCount += 1;
+  }
+  await event.save();
+};
+
 const updateEventById = async (eventId: string, updateBody: EventUpdate) => {
   const event = await getEventById(eventId);
   if (!event) {
@@ -45,6 +56,7 @@ const deleteEventById = async (eventId: string) => {
 
 export default {
   createEvent,
+  changeCount,
   updateEventById,
   queryEvents,
   deleteEventById,

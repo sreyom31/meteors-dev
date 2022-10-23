@@ -14,6 +14,7 @@ export interface IEvent {
   tracks: string[];
   isActive: boolean;
   maxCount: number;
+  availableCount: number;
   dateOfEntry: Date;
   lastUpdated: Date;
 }

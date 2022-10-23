@@ -2,8 +2,10 @@ import httpStatus from 'http-status';
 import { Registration, RegistrationUpdate } from '../shared/customTypes';
 import RegistrationModel from '../models/registrations/registration.model';
 import ApiError from '../utils/ApiError';
+import eventService from './event.service';
 
 const createRegistration = async (registrationBody: Registration) => {
+  await eventService.changeCount(registrationBody.event, 'subtract');
   return RegistrationModel.create(registrationBody);
 };
 
@@ -30,6 +32,7 @@ const updateRegistrationById = async (
 
 const deleteRegistrationById = async (registrationId: string) => {
   const registration = await getRegistrationById(registrationId);
+  await eventService.changeCount(registration.event, 'add');
   if (!registration) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Registration not found');
   }

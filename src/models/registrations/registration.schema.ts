@@ -1,3 +1,4 @@
+import { NextFunction } from 'express';
 import { Schema } from 'mongoose';
 import { setLastUpdated } from './registration.methods';
 import { toJSON, paginate } from '../plugins';
@@ -5,11 +6,12 @@ import { toJSON, paginate } from '../plugins';
 const RegistrationSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'user',
+    unique: true,
   },
   event: {
     type: Schema.Types.ObjectId,
-    ref: 'Event',
+    ref: 'event',
   },
   isPresent: {
     type: Boolean,
@@ -32,5 +34,16 @@ const RegistrationSchema = new Schema({
 RegistrationSchema.plugin(toJSON);
 RegistrationSchema.plugin(paginate);
 RegistrationSchema.methods.setLastUpdated = setLastUpdated;
+RegistrationSchema.pre('save', function (next: NextFunction) {
+  this.populate(['user', 'event']);
+  next();
+});
+RegistrationSchema.pre(/^find/, function (next: NextFunction) {
+  this.populate([
+    { path: 'user', select: 'name email' },
+    { path: 'event', select: 'name availableCount' },
+  ]);
+  next();
+});
 
 export default RegistrationSchema;

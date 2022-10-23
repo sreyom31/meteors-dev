@@ -14,15 +14,26 @@ export const userDesignations = {
     'getRegistrations',
     'manageRegistrations',
   ],
-  student: ['getUsers', 'manageUsers', 'getEvents', 'getRegistrations'],
-  faculty: ['getUsers', 'manageUsers', 'getEvents', 'getRegistrations'],
+  student: [
+    'getUsers',
+    'manageUsers',
+    'getEvents',
+    'postRegistrations',
+    'manageRegistrations',
+  ],
+  faculty: [
+    'getUsers',
+    'manageUsers',
+    'getEvents',
+    'postRegistrations',
+    'manageRegistrations',
+  ],
   club: [
     'getUsers',
     'manageUsers',
     'getEvents',
     'manageEvents',
     'getRegistrations',
-    'manageRegistrations',
   ],
 };
 
