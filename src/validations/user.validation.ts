@@ -17,6 +17,8 @@ const createUser = z.object({
           path: ['Register'],
         }
       ),
+    dept: z.string().trim(),
+    role: z.string().trim(),
   }),
 });
 
@@ -69,6 +71,8 @@ const updateUser = z.object({
             path: ['Register'],
           }
         ),
+      dept: z.string().trim(),
+      role: z.string().trim(),
     })
     .partial()
     .refine((body) => Object.keys(body).length, {

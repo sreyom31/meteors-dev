@@ -2,15 +2,16 @@ export type User = {
   name: string;
   email: string;
   password: string;
+  dept: string;
+  role: string;
 };
 
 export type UserUpdate = {
   name?: string;
   email?: string;
   password?: string;
-  domain?: string;
-  designation?: string;
-  isEmailVerified?: boolean;
+  dept?: string;
+  role?: string;
 };
 
 export type Event = {
