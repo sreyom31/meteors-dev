@@ -20,6 +20,7 @@ export const userDesignations = {
     'getEvents',
     'postRegistrations',
     'manageRegistrations',
+    'getOdrequests',
   ],
   faculty: [
     'getUsers',
@@ -27,6 +28,7 @@ export const userDesignations = {
     'getEvents',
     'postRegistrations',
     'manageRegistrations',
+    'manageOdrequests',
   ],
   club: [
     'getUsers',
@@ -34,6 +36,7 @@ export const userDesignations = {
     'getEvents',
     'manageEvents',
     'getRegistrations',
+    'getOdrequests',
   ],
 };
 

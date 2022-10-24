@@ -6,6 +6,7 @@ export interface IOdrequest {
   user: Types.ObjectId;
   faculty: Types.ObjectId;
   status: string;
+  file: string;
   dateOfEntry: Date;
   lastUpdated: Date;
 }

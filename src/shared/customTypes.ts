@@ -65,3 +65,21 @@ export type RegistrationUpdate = {
   isActive?: boolean;
   certificate?: string;
 };
+
+export type Odrequest = {
+  title: string;
+  description: string;
+  user: string;
+  faculty: string;
+  status: string;
+  file: string;
+};
+
+export type OdrequestUpdate = {
+  title: string;
+  description: string;
+  user: string;
+  faculty: string;
+  status?: string;
+  file: string;
+};

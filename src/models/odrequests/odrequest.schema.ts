@@ -27,6 +27,10 @@ const OdrequestSchema = new Schema({
     enum: ['pending', 'approved', 'rejected'],
     default: 'pending',
   },
+  file: {
+    type: String,
+    required: [true, 'File is required'],
+  },
   dateOfEntry: {
     type: Date,
     default: new Date(),
