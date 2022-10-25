@@ -3,11 +3,11 @@ import { Types } from 'mongoose';
 
 const createOdrequest = z.object({
   body: z.object({
+    title: z.string(),
+    description: z.string(),
     user: z.string(),
     faculty: z.string(),
     status: z.string(),
-    title: z.string(),
-    description: z.string(),
     file: z.string(),
   }),
 });
@@ -15,11 +15,11 @@ const createOdrequest = z.object({
 const getOdrequests = z.object({
   query: z
     .object({
+      title: z.string(),
+      description: z.string(),
       user: z.string(),
       faculty: z.string(),
       status: z.string(),
-      title: z.string(),
-      description: z.string(),
       file: z.string(),
       sortBy: z.string(),
       limit: z.number().int(),
@@ -74,7 +74,7 @@ const deleteOdrequest = z.object({
   }),
 });
 
-export {
+export default {
   createOdrequest,
   getOdrequests,
   getOdrequest,
