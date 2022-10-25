@@ -3,6 +3,7 @@ import authRoute from './auth.route';
 import userRoute from './user.route';
 import eventRoute from './event.route';
 import registrationRoute from './registration.route';
+import odrequestRoute from './odrequest.route'
 
 const router = Router();
 
@@ -11,6 +12,7 @@ const defaultRoutes = [
   { path: '/users', route: userRoute },
   { path: '/events', route: eventRoute },
   { path: '/registrations', route: registrationRoute },
+  { path: '/odrequests', route: odrequestRoute },
 ];
 
 defaultRoutes.forEach((route) => {

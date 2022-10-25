@@ -17,10 +17,12 @@ const OdrequestSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'user',
+    required: [true, 'User is required'],
   },
   faculty: {
     type: Schema.Types.ObjectId,
     ref: 'user',
+    required: [true, 'Faculty is required'],
   },
   status: {
     type: String,
