@@ -2,14 +2,16 @@ import z from 'zod';
 import { Types } from 'mongoose';
 
 const createOdrequest = z.object({
-  body: z.object({
-    title: z.string(),
-    description: z.string(),
-    user: z.string(),
-    faculty: z.string(),
-    status: z.string(),
-    file: z.string(),
-  }),
+  body: z
+    .object({
+      title: z.string(),
+      description: z.string(),
+      user: z.string(),
+      faculty: z.string(),
+      status: z.string(),
+      file: z.string(),
+    })
+    .partial(),
 });
 
 const getOdrequests = z.object({
