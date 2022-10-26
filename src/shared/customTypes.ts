@@ -23,6 +23,8 @@ export type Event = {
   registrationFee: number;
   speakers: string[];
   venue: string;
+  date: string;
+  time: string;
   forTeacher: boolean;
   forStudent: boolean;
   tracks: string[];
@@ -40,6 +42,8 @@ export type EventUpdate = {
   registrationFee?: number;
   speakers?: string[];
   venue?: string;
+  date?: string;
+  time?: string;
   forTeacher?: boolean;
   forStudent?: boolean;
   tracks?: string[];

@@ -9,6 +9,8 @@ export interface IEvent {
   registrationFee: number;
   speakers: string[];
   venue: string;
+  date: string;
+  time: string;
   forTeacher: boolean;
   forStudent: boolean;
   tracks: string[];

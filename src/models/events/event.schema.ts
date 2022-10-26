@@ -41,6 +41,14 @@ const EventSchema = new Schema({
       type: String,
     },
   ],
+  date: {
+    type: String,
+    required: [true, 'Date is required'],
+  },
+  time: {
+    type: String,
+    required: [true, 'Time is required'],
+  },
   venue: {
     type: String,
     required: [true, 'Venue is required'],
