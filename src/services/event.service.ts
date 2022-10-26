@@ -10,6 +10,14 @@ const createEvent = async (eventBody: Event) => {
   return EventModel.create(eventBody);
 };
 
+const sendMail = async (eventId: string) => {
+  const event = await EventModel.findById(eventId);
+  if (!event) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Event not found');
+  }
+  return event;
+};
+
 const getEventById = async (id: string) => EventModel.findById(id);
 const getEventBySlug = async (slug: string) => EventModel.findOne({ slug });
 
@@ -56,6 +64,7 @@ const deleteEventById = async (eventId: string) => {
 
 export default {
   createEvent,
+  sendMail,
   changeCount,
   updateEventById,
   queryEvents,

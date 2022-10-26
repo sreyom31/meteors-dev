@@ -10,6 +10,7 @@ const createRegistration = z.object({
       isRefreshment: z.boolean(),
       certificate: z.string(),
       isActive: z.boolean(),
+      qrCode: z.string(),
     })
     .partial(),
 });

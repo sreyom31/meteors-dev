@@ -10,6 +10,11 @@ const createEvent = catchAsync(async (req: Request, res: Response) => {
   res.status(httpStatus.CREATED).send(event);
 });
 
+const sendMail = catchAsync(async (req: Request, res: Response) => {
+  const event = await eventService.sendMail(req.params.eventId);
+  res.send(event);
+});
+
 const getEvent = catchAsync(async (req: Request, res: Response) => {
   const event = await eventService.getEventById(req.params.eventId);
   if (!event) {
@@ -45,4 +50,11 @@ const deleteEvent = catchAsync(async (req: Request, res: Response) => {
   res.status(httpStatus.NO_CONTENT).send();
 });
 
-export default { createEvent, getEvent, getEvents, updateEvent, deleteEvent };
+export default {
+  createEvent,
+  sendMail,
+  getEvent,
+  getEvents,
+  updateEvent,
+  deleteEvent,
+};

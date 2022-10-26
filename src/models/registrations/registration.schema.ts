@@ -28,6 +28,17 @@ const RegistrationSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  qrCode: {
+    type: String,
+  },
+  dateOfEntry: {
+    type: Date,
+    default: new Date(),
+  },
+  lastUpdated: {
+    type: Date,
+    default: new Date(),
+  },
 });
 
 // add plugin that converts mongoose to json

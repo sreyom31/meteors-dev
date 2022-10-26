@@ -37,4 +37,8 @@ router
     eventController.deleteEvent
   );
 
+router
+  .route('/:eventId/mail')
+  .get(auth('manageEvents'), eventController.sendMail);
+
 export default router;

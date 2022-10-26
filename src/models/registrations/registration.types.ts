@@ -7,6 +7,7 @@ export interface IRegistration {
   isRefreshment: boolean;
   certificate: string;
   isActive: boolean;
+  qrCode: string;
   dateOfEntry: Date;
   lastUpdated: Date;
 }

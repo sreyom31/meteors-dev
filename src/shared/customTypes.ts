@@ -59,6 +59,7 @@ export type Registration = {
   isRefreshment?: boolean;
   isActive?: boolean;
   certificate?: string;
+  qrCode?: string;
 };
 
 export type RegistrationUpdate = {
