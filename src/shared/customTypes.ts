@@ -88,3 +88,21 @@ export type OdrequestUpdate = {
   status?: string;
   file: string;
 };
+
+export type Report = {
+  title: string;
+  description: string;
+  user: string;
+  faculty: string;
+  status: string;
+  file: string;
+};
+
+export type ReportUpdate = {
+  title: string;
+  description: string;
+  user: string;
+  faculty: string;
+  status?: string;
+  file: string;
+};

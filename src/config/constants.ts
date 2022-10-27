@@ -14,6 +14,8 @@ export const userDesignations = {
     'getRegistrations',
     'postRegistrations',
     'manageRegistrations',
+    'getReports',
+    'manageReports',
   ],
   student: [
     'getUsers',
@@ -30,6 +32,8 @@ export const userDesignations = {
     'postRegistrations',
     'manageRegistrations',
     'manageOdrequests',
+    'getReports',
+    'manageReports',
   ],
   club: [
     'getUsers',
@@ -38,6 +42,7 @@ export const userDesignations = {
     'manageEvents',
     'getRegistrations',
     'getOdrequests',
+    'getReports',
   ],
 };
 
