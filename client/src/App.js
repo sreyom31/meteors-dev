@@ -19,9 +19,7 @@ function App() {
         <div className="App">
             <Router>
                 <Switch>
-                    <Route exact path={"/events"} component={() => <EventPage
-                        isLogged={loggedIn}
-                    />}></Route>
+                    <Route exact path={"/events"} component={EventPage}></Route>
                     <Route exact path={"/login"} component={LoginPage}></Route>
                     <Route exact path={"/signUp"} component={SignUpPage}></Route>
                 </Switch>
