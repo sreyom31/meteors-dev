@@ -1,9 +1,9 @@
 import nodemailer from 'nodemailer';
 import htmlToText from 'html-to-text';
-import { Event, User } from '../shared/customTypes';
 import pug from 'pug';
+import { Event, User } from '../shared/customTypes';
 
-module.exports = class Email {
+class Email {
   from: string;
 
   constructor() {
@@ -23,7 +23,7 @@ module.exports = class Email {
 
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
-      port: process.env.EMAIL_PORT,
+      port: 2525,
       auth: {
         user: process.env.EMAIL_USERNAME,
         pass: process.env.EMAIL_PASSWORD,
@@ -64,18 +64,21 @@ module.exports = class Email {
     );
   }
 
-  async sendUserRegister(user: User, event: Event) {
+  async sendUserRegister(user: User, event: Event, code: string) {
     await this.send(
       'userRegister',
       {
         name: user.name,
         eventName: event.slug,
-        hostingClub: event.hostingClub,
+        hostingClub: event.hostingClub.name,
         date: event.date,
         time: event.time,
         venue: event.venue,
+        url: `https://chart.apis.google.com/chart?cht=qr&chs=256x256&chl=${code}`
       },
       user.email
     );
   }
-};
+}
+
+export default Email;

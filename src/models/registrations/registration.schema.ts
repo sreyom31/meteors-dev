@@ -65,7 +65,7 @@ RegistrationSchema.pre('save', function (next: NextFunction) {
 RegistrationSchema.pre(/^find/, function (next: NextFunction) {
   this.populate([
     { path: 'user', select: 'name email' },
-    { path: 'event', select: 'name availableCount' },
+    { path: 'event', select: 'name availableCount hostingClub' },
   ]);
   next();
 });

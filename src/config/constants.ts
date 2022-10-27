@@ -12,6 +12,7 @@ export const userDesignations = {
     'getEvents',
     'manageEvents',
     'getRegistrations',
+    'postRegistrations',
     'manageRegistrations',
   ],
   student: [

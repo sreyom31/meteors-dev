@@ -15,6 +15,11 @@ const envSchema = z.object({
   JWT_ACCESS_EXPIRATION_MINUTES: z.string().default('60'),
   JWT_REFRESH_EXPIRATION_DAYS: z.string().default('15'),
   JWT_RESET_PASSWORD_EXPIRATION_MINUTES: z.string().default('20'),
+  EMAIL_HOST: z.string(),
+  EMAIL_PORT: z.string(),
+  EMAIL_USERNAME: z.string(),
+  EMAIL_PASSWORD: z.string(),
+  EMAIL_FROM: z.string(),
   // JWT_VERIFY_EMAIL_EXPIRATION_MINUTES: z.number().default(20),
 });
 
@@ -48,5 +53,12 @@ export default {
       envVars.data.JWT_RESET_PASSWORD_EXPIRATION_MINUTES,
     verifyEmailExpirationMinutes:
       envVars.data.JWT_VERIFY_EMAIL_EXPIRATION_MINUTES,
+  },
+  email: {
+    dev_host: envVars.data.EMAIL_HOST,
+    dev_username: envVars.data.EMAIL_USERNAME,
+    dev_password: envVars.data.EMAIL_PASSWORD,
+    dev_port: envVars.data.EMAIL_PORT,
+    dev_from: envVars.data.EMAIL_FROM,
   },
 };
