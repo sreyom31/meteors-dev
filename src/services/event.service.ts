@@ -1,21 +1,31 @@
 import httpStatus from 'http-status';
-import { Event, EventUpdate } from '../shared/customTypes';
+import { Event, EventUpdate, User } from '../shared/customTypes';
 import EventModel from '../models/events/event.model';
 import ApiError from '../utils/ApiError';
+import userService from './user.service';
+import Email from '../utils/email';
+
+const sendMail = async (event: Event, mailArray) => {
+  try {
+    mailArray.results.forEach(async (result: User) => {
+      await new Email().sendEventRegister(result, event);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 const createEvent = async (eventBody: Event) => {
   if (await EventModel.isSlugTaken(eventBody.slug)) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'Slug already taken');
   }
-  return EventModel.create(eventBody);
-};
-
-const sendMail = async (eventId: string) => {
-  const event = await EventModel.findById(eventId);
-  if (!event) {
-    throw new ApiError(httpStatus.NOT_FOUND, 'Event not found');
-  }
-  return event;
+  const event = await EventModel.create(eventBody);
+  const data = await userService.queryUsers(
+    { role: ['student', 'faculty'] },
+    {}
+  );
+  await sendMail(event, data);
+  return { event };
 };
 
 const getEventById = async (id: string) => EventModel.findById(id);

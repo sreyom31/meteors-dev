@@ -58,7 +58,7 @@ class Email {
       {
         name: user.name,
         eventName: event.slug,
-        hostingClub: event.hostingClub,
+        hostingClub: event.hostingClub.name,
       },
       user.email
     );
@@ -74,7 +74,7 @@ class Email {
         date: event.date,
         time: event.time,
         venue: event.venue,
-        url: `https://chart.apis.google.com/chart?cht=qr&chs=256x256&chl=${code}`
+        url: `https://chart.apis.google.com/chart?cht=qr&chs=256x256&chl=${code}`,
       },
       user.email
     );

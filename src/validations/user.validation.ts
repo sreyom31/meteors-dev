@@ -27,6 +27,7 @@ const getUsers = z.object({
     .object({
       name: z.string().trim(),
       email: z.string().email().trim(),
+      role: z.array(z.string().trim()),
       sortBy: z.string(),
       limit: z.number().int(),
       page: z.number().int(),
