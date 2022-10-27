@@ -1,6 +1,7 @@
 import { Schema } from 'mongoose';
 import validator from 'validator';
 import bcrypt from 'bcrypt';
+import { role } from '../../config/constants';
 import { setLastUpdated, isPasswordMatch } from './user.methods';
 import { isEmailTaken } from './user.statics';
 import { toJSON, paginate } from '../plugins';
@@ -40,8 +41,8 @@ const UserSchema = new Schema({
   },
   role: {
     type: String,
+    enum: role,
     required: [true, 'Role is required'],
-    trim: true,
   },
   dateOfEntry: {
     type: Date,

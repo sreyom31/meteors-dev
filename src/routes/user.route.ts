@@ -3,19 +3,36 @@ import userController from '../controllers/user.controller';
 import auth from '../middlewares/auth';
 import validate from '../middlewares/validation';
 import { userValidation } from '../validations';
+
 const router = Router();
 
 router
   .route('/')
-  .post(auth(), validate(userValidation.createUser), userController.createUser)
-  .get(auth(), validate(userValidation.getUsers), userController.getUsers);
+  .post(
+    auth('getUsers'),
+    validate(userValidation.createUser),
+    userController.createUser
+  )
+  .get(
+    auth('getUsers'),
+    validate(userValidation.getUsers),
+    userController.getUsers
+  );
 
 router
   .route('/:userId')
-  .get(auth(), validate(userValidation.getUser), userController.getUser)
-  .patch(auth(), validate(userValidation.updateUser), userController.updateUser)
+  .get(
+    auth('getUsers'),
+    validate(userValidation.getUser),
+    userController.getUser
+  )
+  .patch(
+    auth('manageUsers'),
+    validate(userValidation.updateUser),
+    userController.updateUser
+  )
   .delete(
-    auth(),
+    auth('manageUsers'),
     validate(userValidation.deleteUser),
     userController.deleteUser
   );

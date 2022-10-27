@@ -16,6 +16,8 @@ const register = z.object({
         }
       ),
     name: z.string().trim(),
+    dept: z.string().trim(),
+    role: z.string().trim(),
   }),
 });
 

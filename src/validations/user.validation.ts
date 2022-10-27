@@ -17,6 +17,8 @@ const createUser = z.object({
           path: ['Register'],
         }
       ),
+    dept: z.string().trim(),
+    role: z.string().trim(),
   }),
 });
 
@@ -25,6 +27,7 @@ const getUsers = z.object({
     .object({
       name: z.string().trim(),
       email: z.string().email().trim(),
+      role: z.array(z.string().trim()),
       sortBy: z.string(),
       limit: z.number().int(),
       page: z.number().int(),
@@ -69,6 +72,8 @@ const updateUser = z.object({
             path: ['Register'],
           }
         ),
+      dept: z.string().trim(),
+      role: z.string().trim(),
     })
     .partial()
     .refine((body) => Object.keys(body).length, {
