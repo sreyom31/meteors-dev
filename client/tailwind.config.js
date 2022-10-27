@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'login-srm': "url('./images/Srmseal.png')",
+        'event-img': "url('./images/event.jpeg')"
       }
     },
   },
