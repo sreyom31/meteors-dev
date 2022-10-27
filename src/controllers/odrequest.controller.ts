@@ -7,6 +7,8 @@ import { odrequestService } from '../services';
 
 const createOdrequest = catchAsync(async (req: Request, res: Response) => {
   const odrequest = await odrequestService.createOdrequest(req.body);
+  if (req.file) odrequest.file = req.file.filename;
+  odrequest.save();
   res.status(httpStatus.CREATED).send(odrequest);
 });
 

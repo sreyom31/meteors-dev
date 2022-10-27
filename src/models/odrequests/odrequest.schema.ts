@@ -31,7 +31,7 @@ const OdrequestSchema = new Schema({
   },
   file: {
     type: String,
-    required: [true, 'File is required'],
+    // required: [true, 'File is required'],
   },
   dateOfEntry: {
     type: Date,

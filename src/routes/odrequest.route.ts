@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import odrequestController from '../controllers/odrequest.controller';
 import auth from '../middlewares/auth';
+import { handleOd } from '../middlewares/multer';
 import validate from '../middlewares/validation';
 import { odrequestValidation } from '../validations';
 
@@ -11,6 +12,7 @@ router
   .post(
     auth('getOdrequests'),
     validate(odrequestValidation.createOdrequest),
+    handleOd,
     odrequestController.createOdrequest
   )
   .get(

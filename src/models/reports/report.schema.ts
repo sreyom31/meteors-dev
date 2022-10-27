@@ -31,7 +31,7 @@ const ReportSchema = new Schema({
   },
   file: {
     type: String,
-    required: [true, 'File is required'],
+    // required: [true, 'File is required'],
   },
   dateOfEntry: {
     type: Date,

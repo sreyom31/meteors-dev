@@ -7,6 +7,8 @@ import { reportService } from '../services';
 
 const createReport = catchAsync(async (req: Request, res: Response) => {
   const report = await reportService.createReport(req.body);
+  if (req.file) report.file = req.file.filename;
+  report.save();
   res.status(httpStatus.CREATED).send(report);
 });
 

@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import reportController from '../controllers/report.controller';
 import auth from '../middlewares/auth';
+import { handleReport } from '../middlewares/multer';
 import validate from '../middlewares/validation';
 import { reportValidation } from '../validations';
 
@@ -11,6 +12,7 @@ router
   .post(
     auth('getReports'),
     validate(reportValidation.createReport),
+    handleReport,
     reportController.createReport
   )
   .get(
