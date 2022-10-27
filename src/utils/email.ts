@@ -1,15 +1,12 @@
 import nodemailer from 'nodemailer';
 import htmlToText from 'html-to-text';
-import { User } from '../shared/customTypes';
+import { Event, User } from '../shared/customTypes';
+import pug from 'pug';
 
 module.exports = class Email {
   from: string;
-  to: string;
-  name: string;
 
-  constructor(user: User, url?: string) {
-    this.to = user.email;
-    this.name = user.name;
+  constructor() {
     this.from = `Sreyom Sresaan <${process.env.EMAIL_FROM}>`;
   }
 
@@ -34,20 +31,51 @@ module.exports = class Email {
     });
   }
 
-  async send(template: string, subject: string) {
-    const html = `Hey ${this.name} ${template}`;
+  // Send the actual email
+  async send(template, options, toEmail) {
+    // 1) Render HTML based on a pug template
+    const html = pug.renderFile(
+      `${__dirname}/../views/${template}.pug`,
+      options
+    );
+
+    // 2) Define email options
     const mailOptions = {
       from: this.from,
-      to: this.to,
-      subject,
+      to: toEmail,
+      subject: options.subject,
       html,
       text: htmlToText.fromString(html),
     };
 
+    // 3) Create a transport and send email
     await this.newTransport().sendMail(mailOptions);
   }
 
-  async sendThankYouEmail() {
-    await this.send('thankYou', 'Thank you for registering for the event!');
+  async sendEventRegister(user: User, event: Event) {
+    await this.send(
+      'eventRegister',
+      {
+        name: user.name,
+        eventName: event.slug,
+        hostingClub: event.hostingClub,
+      },
+      user.email
+    );
+  }
+
+  async sendUserRegister(user: User, event: Event) {
+    await this.send(
+      'userRegister',
+      {
+        name: user.name,
+        eventName: event.slug,
+        hostingClub: event.hostingClub,
+        date: event.date,
+        time: event.time,
+        venue: event.venue,
+      },
+      user.email
+    );
   }
 };

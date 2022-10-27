@@ -11,6 +11,7 @@ const envSchema = z.object({
     .string()
     .startsWith('mongodb+srv://', { message: 'Must provide a MongoDB URL' }),
   JWT_SECRET: z.string(),
+  JWT_QRCODE_SECRET: z.string(),
   JWT_ACCESS_EXPIRATION_MINUTES: z.string().default('60'),
   JWT_REFRESH_EXPIRATION_DAYS: z.string().default('15'),
   JWT_RESET_PASSWORD_EXPIRATION_MINUTES: z.string().default('20'),
@@ -40,6 +41,7 @@ export default {
   },
   jwt: {
     secret: envVars.data.JWT_SECRET,
+    qrCodeSecret: envVars.data.JWT_QRCODE_SECRET,
     accessExpirationMinutes: envVars.data.JWT_ACCESS_EXPIRATION_MINUTES,
     refreshExpirationDays: envVars.data.JWT_REFRESH_EXPIRATION_DAYS,
     resetPasswordExpirationMinutes:
