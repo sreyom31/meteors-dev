@@ -8,9 +8,11 @@ export default () => {
         {
             email: "",
             name: "",
-            role: "",
+            role: "Student",
             reg: "",
             password: "",
+            dept: "",
+            club: "",
         }
     );
 
@@ -70,6 +72,24 @@ export default () => {
                     <option>Club</option>
                 </select>
 
+                {(formData.role.trim() === "Faculty")?<input
+                    type={"text"}
+                    required={true}
+                    name={"dept"}
+                    value={formData.dept}
+                    onChange={handleChange}
+                    placeholder={"Department"}
+                    className={inputFieldClass}
+                />:(formData.role.trim() === "Club")?<input
+                    type={"text"}
+                    required={true}
+                    name={"club"}
+                    value={formData.club}
+                    onChange={handleChange}
+                    placeholder={"Club Name"}
+                    className={inputFieldClass}
+                />:<></>}
+
                 <input
                     type={"password"}
                     required={true}
@@ -80,7 +100,7 @@ export default () => {
                     className={inputFieldClass}
                 />
 
-                <button className={"w-full text-white rounded-lg px-5 py-3 mt-4 duration-300 bg-blue-700 hover:bg-blue-600"}>Login</button>
+                <button className={"w-full btn btn-blue px-5 py-3 mt-4 duration-300"}>Create Account</button>
             </form>
         </div>
     )

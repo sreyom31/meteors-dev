@@ -42,7 +42,7 @@ export default () => {
                     className={inputFieldClass}
                 />
 
-                <button className={"w-full text-white rounded-lg px-5 py-3 mt-4 duration-300 bg-blue-700 hover:bg-blue-600"}>Login</button>
+                <button className={"w-full btn btn-blue px-5 py-3 mt-4"}>Login</button>
             </form>
         </div>
     )
