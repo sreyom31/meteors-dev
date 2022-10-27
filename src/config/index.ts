@@ -20,6 +20,8 @@ const envSchema = z.object({
   EMAIL_USERNAME: z.string(),
   EMAIL_PASSWORD: z.string(),
   EMAIL_FROM: z.string(),
+  SENDGRID_USERNAME: z.string(),
+  SENDGRID_PASSWORD: z.string(),
   // JWT_VERIFY_EMAIL_EXPIRATION_MINUTES: z.number().default(20),
 });
 
@@ -60,5 +62,7 @@ export default {
     dev_password: envVars.data.EMAIL_PASSWORD,
     dev_port: envVars.data.EMAIL_PORT,
     dev_from: envVars.data.EMAIL_FROM,
+    prod_username: envVars.data.SENDGRID_USERNAME,
+    prod_password: envVars.data.SENDGRID_PASSWORD,
   },
 };

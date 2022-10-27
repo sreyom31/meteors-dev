@@ -2,12 +2,13 @@ import nodemailer from 'nodemailer';
 import htmlToText from 'html-to-text';
 import pug from 'pug';
 import { Event, User } from '../shared/customTypes';
+import config from '../config';
 
 class Email {
   from: string;
 
   constructor() {
-    this.from = `Sreyom Sresaan <${process.env.EMAIL_FROM}>`;
+    this.from = `Sreyom Sresaan <${config.email.dev_from}>`;
   }
 
   newTransport() {
@@ -15,18 +16,18 @@ class Email {
       return nodemailer.createTransport({
         service: 'SendGrid',
         auth: {
-          user: process.env.SENDGRID_USERNAME,
-          pass: process.env.SENDGRID_PASSWORD,
+          user: config.email.prod_username,
+          pass: config.email.prod_password,
         },
       });
     }
 
     return nodemailer.createTransport({
-      host: process.env.EMAIL_HOST,
-      port: 2525,
+      host: config.email.dev_host,
+      port: config.email.dev_port,
       auth: {
-        user: process.env.EMAIL_USERNAME,
-        pass: process.env.EMAIL_PASSWORD,
+        user: config.email.dev_username,
+        pass: config.email.dev_password,
       },
     });
   }
