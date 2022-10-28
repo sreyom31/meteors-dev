@@ -36,7 +36,7 @@ const downloadOdrequest = catchAsync(async (req: Request, res: Response) => {
   if (!odrequest) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Odrequest not found');
   }
-  res.download(`${__dirname}../public/ods${odrequest.file}`);
+  res.download(`${__dirname}../public/ods/${odrequest.file}`);
 });
 
 const updateOdrequest = catchAsync(async (req: Request, res: Response) => {
