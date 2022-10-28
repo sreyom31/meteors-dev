@@ -96,15 +96,17 @@ export type Report = {
   description: string;
   user: string;
   faculty: string;
+  event: string;
   status: string;
   file: string;
 };
 
 export type ReportUpdate = {
-  title: string;
-  description: string;
-  user: string;
-  faculty: string;
+  title?: string;
+  description?: string;
+  user?: string;
+  faculty?: string;
+  event?: string;
   status?: string;
-  file: string;
+  file?: string;
 };

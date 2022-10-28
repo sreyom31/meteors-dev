@@ -8,6 +8,7 @@ const createReport = z.object({
       description: z.string(),
       user: z.string(),
       faculty: z.string(),
+      event: z.string(),
       status: z.string(),
       file: z.string(),
     })
@@ -22,6 +23,7 @@ const getReports = z.object({
       user: z.string(),
       faculty: z.string(),
       status: z.string(),
+      event: z.string(),
       file: z.string(),
       sortBy: z.string(),
       limit: z.number().int(),
@@ -56,6 +58,7 @@ const updateReport = z.object({
     .object({
       user: z.string(),
       faculty: z.string(),
+      event: z.string(),
       status: z.string(),
       title: z.string(),
       description: z.string(),

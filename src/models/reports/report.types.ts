@@ -5,6 +5,7 @@ export interface IReport {
   description: string;
   user: Types.ObjectId;
   faculty: Types.ObjectId;
+  event: Types.ObjectId;  
   status: string;
   file: string;
   dateOfEntry: Date;
