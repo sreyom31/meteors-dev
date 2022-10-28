@@ -33,7 +33,7 @@ export default () => {
 
     return (
         <div>
-            <div className={"text-md text-base bg-slate-200 pt-3 w-full"}>
+            <div className={"text-md text-base bg-slate-200 pt-3 w-full h-screen"}>
 
                 <Header />
 
@@ -63,9 +63,7 @@ export default () => {
 
                 {/*<Footer />*/}
 
-                <div className={"container absolute bottom-0 left-1/2 -translate-x-1/2"}>
-                    <Footer />
-                </div>
+                <Footer />
 
             </div>
         </div>

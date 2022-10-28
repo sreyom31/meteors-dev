@@ -117,3 +117,8 @@ export const exportClubEvents = async (clubId) => {
     setAuth();
     return await axios.get(url+`/events/?hostingClub=${clubId}`, config)
 }
+
+export const createEvent = async (formData) => {
+    setAuth();
+    return await axios.post(url+"/events/", formData,config);
+}

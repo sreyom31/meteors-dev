@@ -5,12 +5,14 @@ import Footer from "../../reuse/footer";
 import ReportForm from "./reportForm";
 import {ToastContainer} from "react-toastify";
 import ClubHeader from "./clubHeader";
+import CreateEventPage from "./createEventPage";
 
 
 export default () => {
 
     const [registeredEvents, setEventList] = useState([]);
     const [selectedEventId, setSelectedEventId] = useState("");
+    const [addEvent, setAddEvent] = useState(false);
 
     useEffect(() => {
         exportClubEvents(JSON.parse(localStorage.getItem('User')).id).then((res) => {
@@ -19,6 +21,10 @@ export default () => {
             }
         }).catch(err => console.log(err))
     }, [])
+
+    const addNewEvent = () => {
+        setAddEvent(prevState => !prevState);
+    }
 
     return (
         <div>
@@ -29,7 +35,7 @@ export default () => {
                         <div className={"text-center text-white tracking-widest text-5xl absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"}>
                             We are India’s largest and fastest growing community of builders.
                             <div className={"mt-4"}>
-                                <a href={"/createEvent"} className={"btn btn-blue mt-4 px-12 py-1 text-2xl"}>Create Event</a>
+                                <button className={"btn btn-blue mt-4 px-12 py-1 text-2xl"} onClick={addNewEvent}>Create Event</button>
                             </div>
                         </div>
                     </div>
@@ -37,7 +43,7 @@ export default () => {
             </div>
 
             <div className={"-mt-24 mb-20 container mx-auto"}>
-                <p className={"text-cyan-700 tracking-widest text-4xl text-center pb-6 border-b-2 border-zinc-400"}>Club Events</p>
+                <p className={"text-cyan-700 tracking-widest text-4xl text-center pb-6 border-b-2 border-zinc-400 font-semibold"}>Club Events</p>
                 <div className={"grid grid-cols-3 mt-16 px-2 gap-x-24 gap-y-16"}>
                     {registeredEvents.length?
                         <>
@@ -55,6 +61,20 @@ export default () => {
 
                 </div>
             </div>
+
+            {addEvent?
+                    <>
+                        <div className={"fixed w-full h-screen top-0 left-0 gradient-modal"} onClick={()=>addNewEvent(false)}>
+                        </div>
+                        <div className={"fixed top-1/2 left-1/2 w-2/6 py-8 px-12 bg-slate-300 rounded-lg -translate-x-1/2 -translate-y-1/2"}>
+                            <p className={"text-3xl font-semibold tracking-wider text-cyan-600 mt-2 mb-4 text-center"}>Let's Finish Up</p>
+                            <CreateEventPage
+                                setModal={addNewEvent}
+                            />
+                        </div>
+                    </>
+                :
+                <></> }
 
 
             {selectedEventId?

@@ -9,7 +9,7 @@ export default (props) => {
     }
 
     return (
-        <div className={"px-3 pt-3 pb-8 shadow-md shadow-gray-300 rounded-lg bg-gray-50"}>
+        <div className={"px-3 pt-3 pb-8 shadow-md shadow-gray-300 rounded-lg bg-zinc-300"}>
             <div className={"flex mt-8 pt-2 pb-2 pl-4 pr-4 space-x-6 items-center"}>
                 <div className={"ml-4 text-center border px-1 py-1 rounded-full border-gray-500"}>
                     <img src={clubImage} alt={"Club Logo"} className={"w-16"}/>
@@ -24,7 +24,7 @@ export default (props) => {
 
             <div className={"mt-6 pl-6 pr-6 flex items-center"}>
                 <div className={"ml-5 text-2xl"}>{event.date}</div>
-                {(!event.isActive)?<button className={"btn btn-blue px-6 py-2 ml-auto"} type={"submit"} onClick={handleReport}>Upload Report</button>: <></> }
+                {(!event.isActive)?<button className={"btn btn-ghost px-6 py-2 ml-auto"} type={"submit"} onClick={handleReport}>Upload Report</button>: <></> }
             </div>
         </div>
     )
