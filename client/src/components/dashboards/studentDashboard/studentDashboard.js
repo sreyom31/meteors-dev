@@ -11,7 +11,7 @@ export default() => {
             <div className={"py-4 mt-24 container mx-auto"}>
 
                 <div className={"text-center mb-12"}>
-                    <span className={"text-2xl text-center text-cyan-700 pb-3 px-6 border-b border-cyan-700"}>Welcome back, Aayuushi</span>
+                    <span className={"text-2xl text-center text-cyan-700 pb-3 px-6 border-b border-cyan-700"}>Welcome back, {JSON.parse(localStorage.getItem("User")).name}</span>
                 </div>
                 <p className={"text-3xl font-semibold tracking-wide"}>Registered Events</p>
 

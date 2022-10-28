@@ -2,7 +2,7 @@ import LoginForm from "./login-form";
 
 export default () => {
     return (
-        <div className={"bg-slate-300 w-screen h-screen lg:flex lg:flex-row lg:items-center"}>
+        <div className={"bg-slate-300 w-full h-screen lg:flex lg:flex-row lg:items-center"}>
             <div className={"container shadow-xl rounded-3xl shadow-gray-400  h-4/5 mx-auto lg:flex lg:items-center lg:items-stretch"}>
                 <div className={"hidden lg:flex rounded-tl-3xl rounded-bl-3xl flex-col justify-center items-center w-1/2 bg-blue-600"}>
                     <div className={"w-1/2 h-1/2 bg-login-srm bg-center bg-no-repeat bg-contain"}>
