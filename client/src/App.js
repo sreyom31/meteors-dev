@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+
+import LoginPage from "./components/login/login-page";
+import SignUpPage from "./components/login/signUp-page";
+import EventPage from "./components/events/eventPage";
+import HomePage from "./components/home/homePage";
+import Dashboard from "./components/dashboards/dashboard";
+import SingleEventPage from "./components/events/singleEventPage";
+import CreateEventPage from "./components/dashboards/clubsDashboard/createEventPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <div className="App">
+            <Router>
+                <Switch>
+                    <Route exact path={"/"} component={HomePage}></Route>
+                    <Route exact path={"/events"} component={EventPage}></Route>
+                    <Route exact path={"/events/:id"} component={SingleEventPage}></Route>
+                    <Route exact path={"/login"} component={LoginPage}></Route>
+                    <Route exact path={"/signUp"} component={SignUpPage}></Route>
+                    <Route exact path={"/createEvent"} component={CreateEventPage}></Route>
+                    <Route exact path={"/dashboard/"} component={Dashboard}></Route>
+                </Switch>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
