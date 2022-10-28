@@ -39,4 +39,6 @@ router
     odrequestController.deleteOdrequest
   );
 
+router.get('/downloads/:odrequestId', odrequestController.downloadOdrequest);
+
 export default router;
