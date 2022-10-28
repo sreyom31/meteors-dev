@@ -1,4 +1,15 @@
+import {useState} from "react";
+import {useHistory} from "react-router-dom";
+
 export default () => {
+
+    const history = useHistory();
+
+    const handleLogout = () => {
+        localStorage.removeItem("User");
+        history.push("/");
+        window.location.reload();
+    }
 
     return (
         <div className={"fixed top-3 left-1/2 -translate-x-1/2 container shadow-md shadow-gray-300 bg-gray-50 py-2 px-8 rounded-2xl grid grid-cols-3 items-center"}>
@@ -8,9 +19,16 @@ export default () => {
                 <li><a href={"/events"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Events</a></li>
                 <li><a href={"/dashboard"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Dashboard</a></li>
             </ul>
-            <div className={"space-x-4 text-right"}>
-                <a className={"btn-blue btn py-2 px-6"} href={"/signup"}>Register</a>
-                <a className={"btn btn-ghost py-2 px-6"} href={"/login"}>Sign In</a>
+            <div className={"text-right"}>
+                {localStorage.getItem("User")?
+                    <div>
+                        <button className={"btn btn-blue px-5 py-2"} onClick={handleLogout}>Logout</button>
+                    </div>:
+                    <div className={"space-x-4"}>
+                        <a className={"btn-blue btn py-2 px-6"} href={"/signup"}>Register</a>
+                        <a className={"btn btn-ghost py-2 px-6"} href={"/login"}>Sign In</a>
+                    </div>
+                }
             </div>
         </div>
     )

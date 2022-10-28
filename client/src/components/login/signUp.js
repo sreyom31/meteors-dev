@@ -1,6 +1,11 @@
 import {useState} from "react";
+import {createUser} from "../api/api";
+import {toast, ToastContainer} from "react-toastify";
+import {useHistory} from "react-router-dom";
 
 export default () => {
+
+    const history = useHistory();
 
     const inputFieldClass = "w-full form-input rounded-lg px-5 py-3 border-2 border-slate-400 bg-slate-100 block mt-4";
 
@@ -8,31 +13,41 @@ export default () => {
         {
             email: "",
             name: "",
-            role: "Student",
-            reg: "",
+            role: "student",
             password: "",
             dept: "",
-            club: "",
         }
     );
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        createUser(formData)
+            .then((res=>{
+                if(res.data) {
+                    console.log(res.data);
+                    toast("User Created Successfully");
+                    setTimeout(() => history.push('/login'), 1500);
+                }
+            })).catch(err => {
+                console.log(err);
+                toast.error("Couldn't Create Account");
+        });
+
+    }
+
     const handleChange = (e) => {
-
         const {name, value} = e.target;
-
         SetFormData(prevState => {
             return {
                 ...prevState,
                 [name]: value,
             }
         })
-
-        console.log(formData);
     };
 
     return(
         <div>
-            <form className={"w-full"}>
+            <form className={"w-full"} onSubmit={handleSubmit}>
                 <input
                     type={"text"}
                     required={true}
@@ -51,15 +66,6 @@ export default () => {
                     placeholder={"Name"}
                     className={inputFieldClass}
                 />
-                <input
-                    type={"text"}
-                    required={true}
-                    name={"reg"}
-                    value={formData.reg}
-                    onChange={handleChange}
-                    placeholder={"Registration Number"}
-                    className={inputFieldClass}
-                />
 
                 <select
                     className={inputFieldClass}
@@ -67,12 +73,12 @@ export default () => {
                     name={"role"}
                     value={formData.role}
                 >
-                    <option>Student</option>
-                    <option>Faculty</option>
-                    <option>Club</option>
+                    <option>student</option>
+                    <option>faculty</option>
+                    <option>club</option>
                 </select>
 
-                {(formData.role.trim() === "Faculty")?<input
+                <input
                     type={"text"}
                     required={true}
                     name={"dept"}
@@ -80,15 +86,7 @@ export default () => {
                     onChange={handleChange}
                     placeholder={"Department"}
                     className={inputFieldClass}
-                />:(formData.role.trim() === "Club")?<input
-                    type={"text"}
-                    required={true}
-                    name={"club"}
-                    value={formData.club}
-                    onChange={handleChange}
-                    placeholder={"Club Name"}
-                    className={inputFieldClass}
-                />:<></>}
+                />
 
                 <input
                     type={"password"}
@@ -100,8 +98,11 @@ export default () => {
                     className={inputFieldClass}
                 />
 
-                <button className={"w-full btn btn-blue px-5 py-3 mt-4 duration-300"}>Create Account</button>
+                <button className={"w-full btn btn-blue px-5 py-3 mt-4 duration-300"} type={"submit"}>Create Account</button>
             </form>
+
+            <ToastContainer />
+
         </div>
     )
 }

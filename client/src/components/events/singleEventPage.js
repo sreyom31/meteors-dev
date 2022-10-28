@@ -21,7 +21,7 @@ export default () => {
                         </div>
 
                         <div className={"mt-12 pb-2 border-b border-zinc-400"}>
-                            <div className={"w-2/3 flex justify-between items-center text-cyan-600"}>
+                            <div className={"flex pr-8 justify-between items-center text-cyan-600"}>
                                 <span>13 Sept 2022</span>
                                 <span>T401 @ 9:00 - 13:00</span>
                                 <span className={"text-green-600"}>Free Registration</span>
