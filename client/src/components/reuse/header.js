@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useHistory} from "react-router-dom";
 
 export default () => {
@@ -7,6 +6,7 @@ export default () => {
 
     const handleLogout = () => {
         localStorage.removeItem("User");
+        localStorage.removeItem("Token");
         history.push("/");
         window.location.reload();
     }

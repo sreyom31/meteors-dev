@@ -22,7 +22,7 @@ export default () => {
             <div>
                 <div className={"px-5 mt-5"}>
 
-                    <p className={"text-4xl text-cyan-700 text-center"}>Welcome back, Faculty Name</p>
+                    <p className={"text-4xl text-cyan-700 text-center"}>Welcome back, {JSON.parse(localStorage.getItem("User")).name}</p>
 
                     <div className={"mt-8 flex space-x-8 justify-center"}>
                         <div className={"cursor-pointer text-blue-600"} onClick={handleType}>Od Request</div>

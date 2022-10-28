@@ -10,6 +10,7 @@ import EventPage from "./components/events/eventPage";
 import HomePage from "./components/home/homePage";
 import Dashboard from "./components/dashboards/dashboard";
 import SingleEventPage from "./components/events/singleEventPage";
+import Footer from "./components/reuse/footer";
 
 function App() {
 

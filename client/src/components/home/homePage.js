@@ -15,7 +15,6 @@ export default () => {
             <SectionAbout />
 
             <Footer />
-
         </div>
     )
 }

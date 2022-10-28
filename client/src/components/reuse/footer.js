@@ -1,9 +1,9 @@
 export default () => {
     return (
-        <div>
-            <div className={"mt-6 mx-auto h-1 w-4/5 border-b border-zinc-400"}></div>
+        <div className={"container mx-auto px-16"}>
+            <div className={"mt-6 mx-auto h-1 border-b border-zinc-400"}></div>
 
-            <div className={"flex py-8 text-xl  px-8 container mx-auto justify-between"}>
+            <div className={"flex py-8 text-xl  px-8 mx-auto justify-between"}>
                 <div className={"font-semibold text-cyan-600"}>
                     Meteors © 2022.
                 </div>

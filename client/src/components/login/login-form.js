@@ -7,8 +7,6 @@ export default () => {
 
     const history = useHistory();
 
-    const inputFieldClass = "w-full form-input rounded-lg px-5 py-3 border-2 border-slate-400 bg-slate-100 block mt-4";
-
     const [formData, SetFormData] = useState(
         {
             email: "",
@@ -52,7 +50,7 @@ export default () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder={"Email"}
-                    className={inputFieldClass}
+                    className={"inputFieldClass"}
                 />
                 <input
                     type={"password"}
@@ -61,7 +59,7 @@ export default () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder={"Password"}
-                    className={inputFieldClass}
+                    className={"inputFieldClass"}
                 />
 
                 <button className={"w-full btn btn-blue px-5 py-3 mt-4"} type={"submit"}>Login</button>

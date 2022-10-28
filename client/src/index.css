@@ -26,3 +26,11 @@
 .top-section {
     clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
 }
+
+.inputFieldClass {
+    @apply w-full rounded-lg px-5 py-3 border-2 border-slate-400 bg-slate-100 block mt-4;
+}
+
+body {
+    @apply bg-slate-200
+}

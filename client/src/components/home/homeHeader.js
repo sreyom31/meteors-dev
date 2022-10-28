@@ -6,6 +6,7 @@ export default () => {
 
     const handleLogout = () => {
         localStorage.removeItem("User");
+        localStorage.removeItem("Token");
         history.push("/");
         window.location.reload();
     }
