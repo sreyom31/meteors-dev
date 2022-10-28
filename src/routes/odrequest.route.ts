@@ -16,7 +16,7 @@ router
     odrequestController.createOdrequest
   )
   .get(
-    auth('manageOdrequests'),
+    auth('seeOdrequests'),
     validate(odrequestValidation.getOdrequests),
     odrequestController.getOdrequests
   );
