@@ -8,6 +8,7 @@ const createOdrequest = z.object({
       description: z.string(),
       user: z.string(),
       faculty: z.string(),
+      event: z.string(),
       status: z.string(),
       file: z.string(),
     })
@@ -21,6 +22,7 @@ const getOdrequests = z.object({
       description: z.string(),
       user: z.string(),
       faculty: z.string(),
+      event: z.string(),
       status: z.string(),
       file: z.string(),
       sortBy: z.string(),
@@ -56,6 +58,7 @@ const updateOdrequest = z.object({
     .object({
       user: z.string(),
       faculty: z.string(),
+      event: z.string(),
       status: z.string(),
       title: z.string(),
       description: z.string(),
