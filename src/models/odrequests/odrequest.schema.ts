@@ -24,6 +24,11 @@ const OdrequestSchema = new Schema({
     ref: 'user',
     required: [true, 'Faculty is required'],
   },
+  event: {
+    type: Schema.Types.ObjectId,
+    ref: 'event',
+    required: [true, 'Event is required'],
+  },
   status: {
     type: String,
     enum: ['pending', 'approved', 'rejected'],
@@ -48,14 +53,11 @@ OdrequestSchema.plugin(toJSON);
 OdrequestSchema.plugin(paginate);
 OdrequestSchema.methods.setLastUpdated = setLastUpdated;
 OdrequestSchema.pre('save', function (next: NextFunction) {
-  this.populate(['user', 'faculty']);
+  this.populate(['user', 'faculty', 'event']);
   next();
 });
 OdrequestSchema.pre(/^find/, function (next: NextFunction) {
-  this.populate([
-    { path: 'user', select: 'name email' },
-    { path: 'faculty', select: 'name email' },
-  ]);
+  this.populate(['user', 'faculty', 'event']);
   next();
 });
 

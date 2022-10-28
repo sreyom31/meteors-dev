@@ -24,6 +24,11 @@ const ReportSchema = new Schema({
     ref: 'user',
     required: [true, 'Faculty is required'],
   },
+  event: {
+    type: Schema.Types.ObjectId,
+    ref: 'event',
+    required: [true, 'Event is required'],
+  },
   status: {
     type: String,
     enum: ['pending', 'approved', 'rejected'],
@@ -48,14 +53,11 @@ ReportSchema.plugin(toJSON);
 ReportSchema.plugin(paginate);
 ReportSchema.methods.setLastUpdated = setLastUpdated;
 ReportSchema.pre('save', function (next: NextFunction) {
-  this.populate(['user', 'faculty']);
+  this.populate(['user', 'faculty', 'event']);
   next();
 });
 ReportSchema.pre(/^find/, function (next: NextFunction) {
-  this.populate([
-    { path: 'user', select: 'name email' },
-    { path: 'faculty', select: 'name email' },
-  ]);
+  this.populate(['user', 'faculty', 'event']);
   next();
 });
 

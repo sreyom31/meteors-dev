@@ -16,7 +16,7 @@ router
     odrequestController.createOdrequest
   )
   .get(
-    auth('manageOdrequests'),
+    auth('seeOdrequests'),
     validate(odrequestValidation.getOdrequests),
     odrequestController.getOdrequests
   );
@@ -38,5 +38,7 @@ router
     validate(odrequestValidation.deleteOdrequest),
     odrequestController.deleteOdrequest
   );
+
+router.get('/downloads/:odrequestId', odrequestController.downloadOdrequest);
 
 export default router;

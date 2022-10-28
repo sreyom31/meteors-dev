@@ -15,7 +15,7 @@ const storageOd = multer.diskStorage({
 
 const storageReport = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, '../../public/reports'));
+    cb(null, path.join(__dirname, '../public/reports'));
   },
   filename: function (req, file, cb) {
     // cb(null, file.fieldname + '-' + Date.now() + '.pdf');

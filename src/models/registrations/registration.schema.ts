@@ -9,7 +9,6 @@ const RegistrationSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'user',
-    unique: true,
   },
   event: {
     type: Schema.Types.ObjectId,
@@ -63,10 +62,7 @@ RegistrationSchema.pre('save', function (next: NextFunction) {
   next();
 });
 RegistrationSchema.pre(/^find/, function (next: NextFunction) {
-  this.populate([
-    { path: 'user', select: 'name email' },
-    { path: 'event', select: 'name availableCount hostingClub' },
-  ]);
+  this.populate(['user', 'event']);
   next();
 });
 
