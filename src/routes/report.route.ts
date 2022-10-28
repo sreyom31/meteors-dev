@@ -39,4 +39,6 @@ router
     reportController.deleteReport
   );
 
+router.get('/downloads/:reportId', reportController.downloadReport);
+
 export default router;

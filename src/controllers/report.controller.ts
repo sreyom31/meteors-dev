@@ -27,6 +27,14 @@ const getReports = catchAsync(async (req: Request, res: Response) => {
   res.send(result);
 });
 
+const downloadReport = catchAsync(async (req: Request, res: Response) => {
+  const report = await reportService.getReportById(req.params.reportId);
+  if (!report) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Report not found');
+  }
+  res.download(`${__dirname}/../public/reports/${report.file}`);
+});
+
 const updateReport = catchAsync(async (req: Request, res: Response) => {
   const report = await reportService.updateReportById(
     req.params.reportId,
@@ -44,6 +52,7 @@ export default {
   createReport,
   getReport,
   getReports,
+  downloadReport,
   updateReport,
   deleteReport,
 };
