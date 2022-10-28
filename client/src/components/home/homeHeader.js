@@ -5,8 +5,8 @@ export default () => {
             <div className={"text-4xl tracking-widest text-cyan-600 uppercase"}><a href={"/"}>Blitz</a></div>
             <ul className={"list-none flex justify-center space-x-8"}>
                 <li><a href={"/"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Home</a></li>
-                <li><a href={"/"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Events</a></li>
-                <li><a href={"/"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Dashboard</a></li>
+                <li><a href={"/events"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Events</a></li>
+                <li><a href={"/dashboard"} className={"pb-1 px-3 border-b border-b-transparent duration-300 hover:border-b-cyan-600 hover:text-cyan-600"}>Dashboard</a></li>
             </ul>
             <div className={"space-x-4 text-right"}>
                 <a className={"btn-blue btn py-2 px-6"} href={"/signup"}>Register</a>

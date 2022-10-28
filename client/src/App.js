@@ -8,6 +8,7 @@ import LoginPage from "./components/login/login-page";
 import SignUpPage from "./components/login/signUp-page";
 import EventPage from "./components/events/eventPage";
 import HomePage from "./components/home/homePage";
+import StudentDashboard from "./components/dashboards/studentDashboard/studentDashboard";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
                     <Route exact path={"/events"} component={EventPage}></Route>
                     <Route exact path={"/login"} component={LoginPage}></Route>
                     <Route exact path={"/signUp"} component={SignUpPage}></Route>
+                    <Route exact path={"/dashboard/"} component={StudentDashboard}></Route>
                 </Switch>
             </Router>
         </div>

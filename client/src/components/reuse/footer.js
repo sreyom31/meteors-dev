@@ -8,10 +8,10 @@ export default () => {
                     Meteors © 2022.
                 </div>
                 <ul className={"list-none font-bold flex space-x-10 text-cyan-700"}>
-                    <li><a href={""} className={"duration-300 hover:text-blue-700"}><i className="fa-brands fa-google"></i></a></li>
-                    <li><a href={""} className={"duration-300 hover:text-blue-700"}><i className="fa-brands fa-instagram"></i></a></li>
-                    <li><a href={""} className={"duration-300 hover:text-blue-700"}><i className="fa-brands fa-twitter"></i></a></li>
-                    <li><a href={""} className={"duration-300 hover:text-blue-700"}><i className="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href={""} className={"duration-300 hover:text-red-400"}><i className="fa-brands fa-google"></i></a></li>
+                    <li><a href={""} className={"duration-300 hover:text-red-400"}><i className="fa-brands fa-instagram"></i></a></li>
+                    <li><a href={""} className={"duration-300 hover:text-red-400"}><i className="fa-brands fa-twitter"></i></a></li>
+                    <li><a href={""} className={"duration-300 hover:text-red-400"}><i className="fa-brands fa-linkedin-in"></i></a></li>
                 </ul>
             </div>
 
