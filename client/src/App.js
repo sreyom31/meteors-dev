@@ -10,7 +10,7 @@ import EventPage from "./components/events/eventPage";
 import HomePage from "./components/home/homePage";
 import Dashboard from "./components/dashboards/dashboard";
 import SingleEventPage from "./components/events/singleEventPage";
-import Footer from "./components/reuse/footer";
+import CreateEventPage from "./components/dashboards/clubsDashboard/createEventPage";
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
                     <Route exact path={"/events/:id"} component={SingleEventPage}></Route>
                     <Route exact path={"/login"} component={LoginPage}></Route>
                     <Route exact path={"/signUp"} component={SignUpPage}></Route>
+                    <Route exact path={"/createEvent"} component={CreateEventPage}></Route>
                     <Route exact path={"/dashboard/"} component={Dashboard}></Route>
                 </Switch>
             </Router>

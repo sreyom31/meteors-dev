@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {getALlUsers, makeOdRequest} from "../../api/api";
-import {toast, ToastContainer} from "react-toastify";
+import {getALlUsers, makeReportRequest} from "../../api/api";
+import {toast} from "react-toastify";
 
 export default (props) => {
 
@@ -10,7 +10,7 @@ export default (props) => {
         title: "",
         description: "",
         faculty:"",
-        od:"",
+        report:"",
     })
 
     const [facultyList, setFacultyList] = useState([])
@@ -19,11 +19,11 @@ export default (props) => {
         setFromData(prevState => {
 
             if(e.target.type === "file") {
-                    return {
-                        ...prevState,
-                        'od': e.target.files[0],
-                    }
+                return {
+                    ...prevState,
+                    'report': e.target.files[0],
                 }
+            }
             else {
                 return {
                     ...prevState,
@@ -36,8 +36,11 @@ export default (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(formData)
-        makeOdRequest(formData).then(res => {
-            if(res) toast("Od Request Made")
+        makeReportRequest(formData).then(res => {
+            if(res) {
+                toast("Report Request Made");
+                props.setModal("");
+            }
         }).catch(err => console.log(err));
     }
 
@@ -46,7 +49,7 @@ export default (props) => {
     }, [])
 
     return (
-        <div className={"mt-5"}>
+        <div className={"py-3 px-4"}>
             <form onSubmit={handleSubmit}>
                 <input
                     name={"title"}
@@ -77,17 +80,15 @@ export default (props) => {
                     })}
                 </select>
                 <input
-                    name={"od"}
+                    name={"report"}
                     type={"file"}
                     onChange={handleChange}
                     className={"inputFieldClass"}
                 />
 
-                <button className={"btn btn-blue w-full mt-3 py-3"} type={"submit"}>Request Od</button>
+                <button className={"btn btn-blue w-full mt-4 py-3"} type={"submit"}>Upload Report</button>
 
             </form>
-
-            <ToastContainer />
         </div>
     )
 }

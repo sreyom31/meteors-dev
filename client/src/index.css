@@ -31,6 +31,22 @@
     @apply w-full rounded-lg px-5 py-3 border-2 border-slate-400 bg-slate-100 block mt-4;
 }
 
+.inputFieldClassSemi {
+    @apply rounded-lg px-5 py-3 border-2 border-slate-400 bg-slate-100 block mt-4;
+}
+
+.gradient-modal {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.clubDashBoard {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("./images/background-main.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 body {
     @apply bg-slate-200
 }

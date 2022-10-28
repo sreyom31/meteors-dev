@@ -3,7 +3,7 @@ import {getEventOdData} from "../../api/api";
 
 export default (props) => {
 
-    const [odStatus, setOdStaus] = useState(false);
+    const [odStatus, setOdStaus] = useState("pending");
 
     useEffect(()=>{
         getEventOdData(JSON.parse(localStorage.getItem("User")).id, event.id)
@@ -13,6 +13,9 @@ export default (props) => {
 
     const event = props.event;
 
+    const handleClick = () => {
+        props.setEventId(event.id)
+    }
 
     return (
         <div className={"py-6 px-3 bg-gray-50 rounded-md shadow-md shadow-gray-300"}>
@@ -28,8 +31,8 @@ export default (props) => {
                 <span className={"mr-4"}>Attended</span>
                 <span>OD {odStatus}</span>
             </div>
-            <a href={"#"} className={"btn mt-5 block text-center btn-blue w-full py-2"}>Download Certificate</a>
-
+            <a href={"#"} className={"btn mt-5 block text-center btn-blue w-full py-2"} download>Download Certificate</a>
+            { odStatus === "pending"?<button className={"mt-3 btn btn-blue text-center btn-blue w-full py-2"} onClick={handleClick}>Apply OD</button> : <></>}
         </div>
     )
 }

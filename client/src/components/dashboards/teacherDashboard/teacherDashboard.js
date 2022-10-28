@@ -1,11 +1,14 @@
 import Header from "../../reuse/header";
 import OdRequestCard from "./odRequestCard";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import ReportReview from "./reportReview";
+import {getFacultyOds, getFacultyReport} from "../../api/api";
 
 export default () => {
 
-    const [type, setType] = useState("Od Request")
+    const [type, setType] = useState("Od Request");
+    const [odList, setOdList] = useState([]);
+    const [reportList, setReportList] = useState([]);
 
     const handleType = (e) => {
         document.getElementsByClassName("text-blue-600")[0].classList.remove("text-blue-600")
@@ -13,6 +16,22 @@ export default () => {
         setType(e.target.innerText);
         console.log(type);
     };
+
+    useEffect(()=>{
+        console.log(JSON.parse(localStorage.getItem("User")).id);
+        getFacultyOds(JSON.parse(localStorage.getItem("User")).id)
+            .then(res=> {
+                setOdList(res.data.results)
+            })
+            .catch(err=>console.log(err))
+
+        getFacultyReport(JSON.parse(localStorage.getItem("User")).id)
+            .then(res=> {
+                setReportList(res.data.results)
+            })
+            .catch(err=>console.log(err))
+
+    },[])
 
     return (
         <div className={"pt-24 bg-slate-100 min-h-screen"}>
@@ -34,17 +53,34 @@ export default () => {
                     <p className={"mt-4 text-2xl text-gray-700 tracking-wider text-center"}>{type}</p>
 
                     <div className={"container mx-auto px-6"}>
-                        {type === "Od Request"?
+                        {(type === "Od Request")?
                             <>
-                                <OdRequestCard />
-                                <OdRequestCard />
-                                <OdRequestCard />
-                                <OdRequestCard />
-                            </>:<>
-                                <ReportReview />
-                                <ReportReview />
-                                <ReportReview />
-                                <ReportReview />
+                            {(odList.length)?
+                                odList
+                                    .filter(od => od.status === "pending")
+                                    .map(od => {
+                                        return (
+                                            <OdRequestCard
+                                                event={od}
+                                            />
+                                        )
+                                    }):<p>No Od Requests</p>}
+                            </>:
+                            <>
+                                {(console.log("triggerd") || reportList.length)?
+                                    reportList
+                                        .filter(od => od.status === "pending")
+                                        .map(od => {
+                                            return (
+                                                <ReportReview
+                                                    event={od}
+                                                />
+                                            )
+                                        }):<p>No Report Review Requests</p>}
+                                {/*<ReportReview />*/}
+                                {/*<ReportReview />*/}
+                                {/*<ReportReview />*/}
+                                {/*<ReportReview />*/}
                             </>}
                     </div>
 

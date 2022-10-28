@@ -7,6 +7,7 @@ import {findRegisteredEvents} from "../../api/api";
 
 export default() => {
     const [registeredEvents, setRegisteredEvents] = useState([])
+    const [selectedEventId, setSelectedEventId] = useState("");
 
     useEffect(() => {
         findRegisteredEvents(JSON.parse(localStorage.getItem('User')).id).then((res) => {
@@ -50,7 +51,10 @@ export default() => {
                                 registeredEvents.length ? registeredEvents.filter(event => !event.event.isActive&&event.isPresent).map(
                                         event => {
                                             return (
-                                                <StudentPastEventCard event={event.event}/>
+                                                <StudentPastEventCard
+                                                    event={event.event}
+                                                    setEventId={setSelectedEventId}
+                                                />
                                             )
                                         }
                                     )
@@ -63,7 +67,14 @@ export default() => {
                         </div>
                     </div>
                     <div>
-                        <p className={"text-3xl font-semibold tracking-wide"}>Apply ODs</p>
+                        {selectedEventId.length?
+                            <>
+                                <p className={"text-3xl font-semibold tracking-wide"}>Apply ODs</p>
+                                <StudentOdCards
+                                    eventId={selectedEventId}
+                                />
+                            </>
+                            :<></>}
 
                     </div>
                 </div>

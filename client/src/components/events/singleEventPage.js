@@ -67,9 +67,11 @@ export default (match) => {
                             <div className={"mt-4 text-xl text-orange-600"}>Limited Seats Only</div>
 
                             <div className={"mt-8"}>
-                                {isRegisterd?
+                                {(isRegisterd)?
                                     <div className={"text-2xl text-red-600"}>Already Registered</div>
-                                    :<button className={"btn btn-blue px-16 py-3"} onClick={handleRegister}>Register</button>}
+                                    :(JSON.parse(localStorage.getItem('User')).role === 'club')?
+                                        <div className={"text-2xl text-red-600"}>Clubs Can't Register</div>:
+                                        <button className={"btn btn-blue px-16 py-3"} onClick={handleRegister}>Register</button>}
 
                             </div>
                         </div>
