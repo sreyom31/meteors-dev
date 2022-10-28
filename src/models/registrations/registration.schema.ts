@@ -9,7 +9,6 @@ const RegistrationSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
     ref: 'user',
-    unique: true,
   },
   event: {
     type: Schema.Types.ObjectId,
