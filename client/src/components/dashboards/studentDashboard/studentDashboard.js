@@ -1,5 +1,4 @@
 import Header from "../../reuse/header";
-import clubImage from "../../../images/logo.svg";
 import StudentRegisteredCard from "./student-registered-card";
 import StudentPastEventCard from "./studentPastEventCard";
 import StudentOdCards from "./studentOdCards";
@@ -10,6 +9,10 @@ export default() => {
             <Header />
 
             <div className={"py-4 mt-24 container mx-auto"}>
+
+                <div className={"text-center mb-12"}>
+                    <span className={"text-2xl text-center text-cyan-700 pb-3 px-6 border-b border-cyan-700"}>Welcome back, Aayuushi</span>
+                </div>
                 <p className={"text-3xl font-semibold tracking-wide"}>Registered Events</p>
 
                 <div className={"mt-8 grid grid-cols-3 px-4 gap-x-20"}>
