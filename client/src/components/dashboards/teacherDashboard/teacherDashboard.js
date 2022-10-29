@@ -6,7 +6,7 @@ import {getFacultyOds, getFacultyReport} from "../../api/api";
 
 export default () => {
 
-    const [type, setType] = useState("Od Request");
+    const [type, setType] = useState("Od Requests");
     const [odList, setOdList] = useState([]);
     const [reportList, setReportList] = useState([]);
 
@@ -34,7 +34,7 @@ export default () => {
     },[])
 
     return (
-        <div className={"pt-24 bg-slate-100 min-h-screen"}>
+        <div className={"pt-24 page-gradient h-screen"}>
 
             <Header />
 
@@ -44,7 +44,7 @@ export default () => {
                     <p className={"text-4xl text-cyan-700 text-center"}>Welcome back, {JSON.parse(localStorage.getItem("User")).name}</p>
 
                     <div className={"mt-8 flex space-x-8 justify-center"}>
-                        <div className={"cursor-pointer text-blue-600"} onClick={handleType}>Od Request</div>
+                        <div className={"cursor-pointer text-blue-600"} onClick={handleType}>Od Requests</div>
                         <div className={"cursor-pointer" } onClick={handleType}>Reports</div>
                     </div>
 
@@ -52,13 +52,14 @@ export default () => {
 
                     <p className={"mt-4 text-2xl text-gray-700 tracking-wider text-center"}>{type}</p>
 
-                    <div className={"container mx-auto px-6"}>
-                        {(type === "Od Request")?
+                    <div className={"container mx-auto mt-16 px-6"}>
+                        {(type === "Od Requests")?
                             <>
                             {(odList.length)?
                                 odList
                                     .filter(od => od.status === "pending")
                                     .map(od => {
+                                        console.log(od);
                                         return (
                                             <OdRequestCard
                                                 event={od}
@@ -67,7 +68,7 @@ export default () => {
                                     }):<p>No Od Requests</p>}
                             </>:
                             <>
-                                {(console.log("triggerd") || reportList.length)?
+                                {(reportList.length)?
                                     reportList
                                         .filter(od => od.status === "pending")
                                         .map(od => {

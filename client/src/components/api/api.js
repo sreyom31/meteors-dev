@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // const url = "http://localhost:5000"
-const url = "http://44.204.83.105"
+// const url = "http://44.204.83.105"
+const url = "https://devdeg.com"
 
 let config;
 

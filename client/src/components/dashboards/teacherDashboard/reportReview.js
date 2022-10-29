@@ -21,10 +21,10 @@ export default (props) => {
     }
 
     return (
-        <div className={"border mt-4 px-8 py-3 rounded-md shadow-md shadow-gray-300 bg-gray-50 flex justify-between items-center"}>
-            <div>{props.event.title}</div>
-            <div>{props.event.description}</div>
+        <div className={"border-b border-green-400 mt-6 px-8 pb-4 shadow-gray-300 flex justify-between items-center"}>
+            <div>{props.event.user.name}</div>
             <div>Event Name: {props.event.event.slug}</div>
+            <div>{props.event.description}</div>
             <div>
                 {/*<span className={"text-lg text-green-600"}><a href={"#"} className={"btn btn-ghost px-4 py-1"}>Download Proof</a></span>*/}
                 <span className={"text-lg text-green-600"}><a className={"btn btn-ghost px-4 py-1"} href={"http://44.204.83.105/reports/downloads/"+props.event.id} download>Download Proof</a></span>

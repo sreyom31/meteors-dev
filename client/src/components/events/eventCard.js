@@ -34,7 +34,7 @@ export default (props) => {
     console.log(event);
 
     return (
-        <div className={"px-3 pt-3 pb-8 shadow-md shadow-gray-300 rounded-lg bg-gray-50"}>
+        <div className={"px-3 pt-3 pb-8 shadow-md card-gradient rounded-lg card-gradient"}>
             <div className={"flex mt-8 pt-2 pb-2 pl-4 pr-4 space-x-6 items-center"}>
                 <div className={"ml-4 text-center border px-1 py-1 rounded-full border-gray-500"}>
                     <img src={clubImage} alt={"Club Logo"} className={"w-16"}/>

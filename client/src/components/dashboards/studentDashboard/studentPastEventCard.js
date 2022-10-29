@@ -18,7 +18,7 @@ export default (props) => {
     }
 
     return (
-        <div className={"py-6 px-3 bg-gray-50 rounded-md shadow-md shadow-gray-300"}>
+        <div className={"py-6 px-5 card-gradient-past rounded-md shadow-md shadow-gray-300"}>
             <p className={"text-2xl text-center text-cyan-600 border-b pb-3"}>{event.slug}</p>
 
             <p className={"text-xl mt-4"}>{event.date}</p>

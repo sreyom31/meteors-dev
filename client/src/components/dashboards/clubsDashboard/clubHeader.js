@@ -13,7 +13,7 @@ export default () => {
 
     return (
         <div className={"container mx-auto py-2 px-8 rounded-xl grid grid-cols-3 items-center"}>
-            <div className={"text-4xl tracking-widest text-cyan-600 uppercase"}><a href={"/"}>Blitz</a></div>
+            <div className={"text-4xl tracking-widest text-cyan-800 uppercase"}><a href={"/"}>Blitz</a></div>
             <ul className={"list-none flex justify-center space-x-8"}>
                 <li><a href={"/"} className={"pb-1 px-3 border-b border-b-transparent text-white duration-300 hover:border-b-orange-400 hover:text-orange-400"}>Home</a></li>
                 <li><a href={"/events"} className={"pb-1 px-3 border-b border-b-transparent text-white duration-300 hover:border-b-orange-400 hover:text-orange-400"}>Events</a></li>

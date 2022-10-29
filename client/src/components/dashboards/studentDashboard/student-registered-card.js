@@ -3,7 +3,7 @@ import clubImage from "../../../images/logo.svg";
 export default (props) => {
     const event = props.event
     return (
-        <div className={"bg-gray-50 shadow-md pl-4 pr-4 py-2 shadow-gray-300"}>
+        <div className={"card-gradient shadow-md pl-4 pr-4 py-4 shadow-gray-300"}>
             <div className={"flex mt-2 pt-2 pb-4 border-b space-x-6 items-center"}>
                 <div className={"ml-4 text-center border px-1 py-1 rounded-full border-gray-500"}>
                     <img src={clubImage} alt={"Club Logo"} className={"w-16"}/>

@@ -46,7 +46,7 @@ export default() => {
                 <div className={"mt-28 grid grid-cols-[2fr_1fr] gap-x-16"}>
                     <div>
                         <p className={"text-3xl font-semibold tracking-wide"}>Past Events</p>
-                        <div className={"mt-5 grid grid-cols-3 gap-x-12"}>
+                        <div className={"mt-5 grid grid-cols-3 gap-x-4"}>
                             {
                                 registeredEvents.length ? registeredEvents.filter(event => !event.event.isActive&&event.isPresent).map(
                                         event => {
